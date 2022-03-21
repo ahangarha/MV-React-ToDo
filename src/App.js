@@ -1,27 +1,27 @@
 import { useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import './App.css';
 import TodoInput from './components/TodoInput';
 import TodoItems from './components/TodoItems';
 
-import { v4 as uuidv4 } from "uuid";
-
 function App() {
   const [todos, setTodos] = useState(() => {
-    const inLocalStorage = window.localStorage.getItem('reactTodos')
+    const inLocalStorage = window.localStorage.getItem('reactTodos');
     return JSON.parse(inLocalStorage) || [];
   });
 
   const toggleCompletion = (index) => {
     setTodos(todos.map((todo) => {
-      if (todo.index === index)
-        todo.completed = !todo.completed;
+      if (todo.index === index) {
+        return { ...todo, completed: !todo.completed };
+      }
       return todo;
     }));
-  }
+  };
 
   const deleteTodo = (index) => {
     setTodos(todos.filter((todo) => todo.index !== index));
-  }
+  };
 
   const addNewTodo = (title) => {
     const index = uuidv4();
@@ -31,14 +31,11 @@ function App() {
       index,
       title,
       completed,
-    }))
-  }
+    }));
+  };
 
   useEffect(() => {
-    window.localStorage.setItem(
-      'reactTodos',
-      JSON.stringify(todos),
-    )
+    window.localStorage.setItem('reactTodos', JSON.stringify(todos));
   }, [todos]);
 
   return (
@@ -46,7 +43,11 @@ function App() {
       <header className="App-header">
         <h1>ToDos</h1>
         <TodoInput addNewTodo={addNewTodo} />
-        <TodoItems todos={todos} toggleCompletion={toggleCompletion} deleteTodo={deleteTodo} />
+        <TodoItems
+          todos={todos}
+          toggleCompletion={toggleCompletion}
+          deleteTodo={deleteTodo}
+        />
       </header>
     </div>
   );

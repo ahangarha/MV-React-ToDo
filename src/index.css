@@ -5,13 +5,15 @@
 }
 
 body {
-  font-family: 'Roboto',
+  font-family:
+    'Roboto',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: 'Courier New',
+  font-family:
+    'Courier New',
     monospace;
 }
