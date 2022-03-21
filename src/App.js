@@ -19,7 +19,10 @@ function App() {
   }
 
   const deleteTodo = (index) => {
-    setTodos(todos.filter((todo) => todo.index !== index));
+    setTodos(todos
+      .filter((todo) => todo.index !== index)
+      .map((todo, indexInList) => ({ ...todo, index: indexInList }))
+    );
   }
 
   const addNewTodo = (title) => {
