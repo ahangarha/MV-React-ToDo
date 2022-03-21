@@ -2,18 +2,24 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import TodoItem from './TodoItem'
 
-function TodoItems({todos, toggleCompletion, deleteTodo}) {
+function TodoItems({ todos, toggleCompletion, deleteTodo }) {
+  if (todos.length) {
+    return (
+      <ul id="todoList">
+        {
+          todos.map((todo) => <TodoItem
+            todo={todo}
+            key={todo}
+            toggleCompletion={toggleCompletion}
+            deleteTodo={deleteTodo}
+          />)
+        }
+      </ul>
+    );
+  }
+
   return (
-    <ul id="todoList">
-      {
-        todos.map((todo) => <TodoItem
-          todo={todo}
-          key={todo}
-          toggleCompletion={toggleCompletion}
-          deleteTodo={deleteTodo}
-        />)
-      }
-    </ul>
+    <div>No todo yet! Add some...</div>
   )
 }
 
