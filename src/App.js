@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import TodoInput from './components/TodoInput';
 import TodoItems from './components/TodoItems';
 
 function App() {
@@ -21,14 +22,22 @@ function App() {
     setTodos(todos.filter((todo) => todo.index !== index));
   }
 
+  const addNewTodo = (title) => {
+    const index = todos.length;
+    const completed = false;
+
+    setTodos(todos.concat({
+      index,
+      title,
+      completed,
+    }))
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>ToDos</h1>
-        <form>
-          <input type="text" name="new-todo-title"></input>
-          <input type="submit"></input>
-        </form>
+        <TodoInput addNewTodo={addNewTodo} />
         <ul>
           <TodoItems todos={todos} toggleCompletion={toggleCompletion} deleteTodo={deleteTodo} />
         </ul>
