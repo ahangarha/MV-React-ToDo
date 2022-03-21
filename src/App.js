@@ -3,12 +3,10 @@ import './App.css';
 import TodoInput from './components/TodoInput';
 import TodoItems from './components/TodoItems';
 
+import { v4 as uuidv4 } from "uuid";
+
 function App() {
-  const [todos, setTodos] = useState([{
-    index: 0,
-    title: 'the title',
-    completed: false,
-  }]);
+  const [todos, setTodos] = useState([]);
 
   const toggleCompletion = (index) => {
     setTodos(todos.map((todo) => {
@@ -19,14 +17,11 @@ function App() {
   }
 
   const deleteTodo = (index) => {
-    setTodos(todos
-      .filter((todo) => todo.index !== index)
-      .map((todo, indexInList) => ({ ...todo, index: indexInList }))
-    );
+    setTodos(todos.filter((todo) => todo.index !== index));
   }
 
   const addNewTodo = (title) => {
-    const index = todos.length;
+    const index = uuidv4();
     const completed = false;
 
     setTodos(todos.concat({
