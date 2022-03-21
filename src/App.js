@@ -11,10 +11,9 @@ function App() {
 
   const toggleCompletion = (index) => {
     setTodos(todos.map((todo) => {
-      let newCompleted = todo.completed;
       if (todo.index === index)
-        newCompleted = !todo.completed;
-      return { ...todo, completed: newCompleted };
+        todo.completed = !todo.completed;
+      return todo;
     }));
   }
 
