@@ -41,9 +41,7 @@ function App() {
       <header className="App-header">
         <h1>ToDos</h1>
         <TodoInput addNewTodo={addNewTodo} />
-        <ul>
-          <TodoItems todos={todos} toggleCompletion={toggleCompletion} deleteTodo={deleteTodo} />
-        </ul>
+        <TodoItems todos={todos} toggleCompletion={toggleCompletion} deleteTodo={deleteTodo} />
       </header>
     </div>
   );

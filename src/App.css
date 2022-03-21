@@ -7,12 +7,6 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -24,15 +18,95 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+form {
+  display: flex;
+  margin-block: 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+form input {
+  border: 1px solid #fff7;
+  font-size: 1.25rem;
+}
+
+form input[type="text"] {
+  padding: 0.75rem 1rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-right: none;
+  background-color: transparent;
+  color: white;
+}
+
+form button[type="submit"] {
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  border: none;
+  padding-right: 0.75rem;
+  background-color: #fff7;
+}
+
+form button[type="submit"]:hover {
+  background-color: #ca5;
+}
+
+#todoList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: none;
+  width: 100%;
+  max-width: 500px;
+}
+
+.todoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #ffffff0c;
+  border-radius: 0.25rem;
+}
+.todoItem input[type="checkbox"] {
+  margin: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.todoItem .todoTitle {
+  flex-grow: 1;
+  text-align: left;
+  opacity: 1;
+}
+
+.todoItem .todoTitle.done {
+  opacity: 33%;
+  text-decoration: line-through;
+}
+
+.todoItem .deleteButton {
+  background-color: transparent;
+  color: #fff5;
+  padding: 0.5rem 0.75rem;
+}
+
+.todoItem .deleteButton:hover {
+  background-color: #fff3;
+  color: #fff;
+}
+
+.w-6 {
+  width: 1.5rem;
+}
+
+.h-6 {
+  height: 1.5rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+.btn {
+  padding: 0.5rem;
 }

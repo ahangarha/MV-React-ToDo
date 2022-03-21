@@ -4,7 +4,7 @@ import TodoItem from './TodoItem'
 
 function TodoItems({todos, toggleCompletion, deleteTodo}) {
   return (
-    <>
+    <ul id="todoList">
       {
         todos.map((todo) => <TodoItem
           todo={todo}
@@ -13,7 +13,7 @@ function TodoItems({todos, toggleCompletion, deleteTodo}) {
           deleteTodo={deleteTodo}
         />)
       }
-    </>
+    </ul>
   )
 }
 
