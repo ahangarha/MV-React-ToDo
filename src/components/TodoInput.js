@@ -4,11 +4,11 @@ export default function TodoInput({ addNewTodo }) {
   const [title, setTitle] = useState('');
 
   const onChange = (e) => {
-    setTitle(e.target.value.trim());
+    setTitle(e.target.value);
   }
   const onSubmit = (e) => {
     e.preventDefault();
-    addNewTodo(title);
+    addNewTodo(title.trim());
   }
 
   return (
