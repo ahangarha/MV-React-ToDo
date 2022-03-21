@@ -1,0 +1,112 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+form {
+  display: flex;
+  margin-block: 2rem;
+}
+
+form input {
+  border: 1px solid #fff7;
+  font-size: 1.25rem;
+}
+
+form input[type="text"] {
+  padding: 0.75rem 1rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-right: none;
+  background-color: transparent;
+  color: white;
+}
+
+form button[type="submit"] {
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  border: none;
+  padding-right: 0.75rem;
+  background-color: #fff7;
+}
+
+form button[type="submit"]:hover {
+  background-color: #ca5;
+}
+
+#todoList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: none;
+  width: 100%;
+  max-width: 500px;
+}
+
+.todoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #ffffff0c;
+  border-radius: 0.25rem;
+}
+.todoItem input[type="checkbox"] {
+  margin: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.todoItem .todoTitle {
+  flex-grow: 1;
+  text-align: left;
+  opacity: 1;
+}
+
+.todoItem .todoTitle.done {
+  opacity: 33%;
+  text-decoration: line-through;
+}
+
+.todoItem .deleteButton {
+  background-color: transparent;
+  color: #fff5;
+  padding: 0.5rem 0.75rem;
+}
+
+.todoItem .deleteButton:hover {
+  background-color: #fff3;
+  color: #fff;
+}
+
+.w-6 {
+  width: 1.5rem;
+}
+
+.h-6 {
+  height: 1.5rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+.btn {
+  padding: 0.5rem;
+}
