@@ -17,6 +17,10 @@ function App() {
     }));
   }
 
+  const deleteTodo = (index) => {
+    setTodos(todos.filter((todo) => todo.index !== index));
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -26,7 +30,7 @@ function App() {
           <input type="submit"></input>
         </form>
         <ul>
-          <TodoItems todos={todos} toggleCompletion={toggleCompletion} />
+          <TodoItems todos={todos} toggleCompletion={toggleCompletion} deleteTodo={deleteTodo} />
         </ul>
       </header>
     </div>
