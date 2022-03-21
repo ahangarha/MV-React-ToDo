@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import TodoInput from './components/TodoInput';
 import TodoItems from './components/TodoItems';
@@ -6,7 +6,10 @@ import TodoItems from './components/TodoItems';
 import { v4 as uuidv4 } from "uuid";
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const inLocalStorage = window.localStorage.getItem('reactTodos')
+    return JSON.parse(inLocalStorage) || [];
+  });
 
   const toggleCompletion = (index) => {
     setTodos(todos.map((todo) => {
@@ -30,6 +33,13 @@ function App() {
       completed,
     }))
   }
+
+  useEffect(() => {
+    window.localStorage.setItem(
+      'reactTodos',
+      JSON.stringify(todos),
+    )
+  }, [todos]);
 
   return (
     <div className="App">
