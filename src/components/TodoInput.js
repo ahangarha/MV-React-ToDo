@@ -9,6 +9,7 @@ export default function TodoInput({ addNewTodo }) {
   const onSubmit = (e) => {
     e.preventDefault();
     addNewTodo(title.trim());
+    setTitle('');
   }
 
   return (
